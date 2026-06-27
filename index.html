@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Journal Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="theme1">
+
+<div id="loginDiv" class="login-screen">
+<div class="login-box">
+<h1 class="login-logo">My Journal</h1>
+<h3 id="logTitle">Login Here</h3>
+            
+<input type="text" id="userInp" placeholder="Enter Username"><br>
+<input type="password" id="passInp" placeholder="Enter Password"><br>
+            
+<button onclick="loginClick()" id="logBtn">Login</button>
+            
+<p onclick="changeForm()" id="switchText">Don't have an account? Create one</p>
+</div>
+</div>
+
+<div id="mainApp" style="display:none;">
+<div class="top-bar">
+<h1>My Journal Log</h1>
+<div class="top-controls">
+                
+<select id="sortSelect" onchange="show()">
+<option value="newest">⏰ Latest First</option>
+<option value="oldest">⌛ Oldest First</option>
+</select>
+
+<select id="chooseTheme" onchange="pickTheme()">
+<option value="theme1">🌸 Pink Style</option>
+<option value="theme2">🌙 Dark Style</option>
+<option value="theme3">📜 Paper Style</option>
+</select>
+
+<div class="music-box">
+<span style="font-size: 11px;">🎵 Music:</span>
+<input type="file" id="myMusic" onchange="playMusic(event)">
+<audio id="audioTag" loop controls></audio>
+</div>
+
+<button onclick="out()" class="logout-btn">Logout</button>
+</div>
+</div>
+
+<hr>
+
+<div class="row">
+<div class="col-left">
+<input type="text" id="findInp" placeholder="🔍 Search entries by matching words..." onkeyup="search()">
+                
+<div class="write-box">
+<textarea id="txtBox" placeholder="Write down your thoughts for today..."></textarea><br>
+<button onclick="add()" id="subBtn">Save Entry</button>
+<input type="hidden" id="editNum" value="">
+</div>
+
+<h2>Your Journal Timeline</h2>
+<div id="allEntries"></div>
+</div>
+
+<div class="col-right">
+<h3>Daily Tasks</h3>
+<div class="todo-form">
+<input type="text" id="todoInp" placeholder="Add a task...">
+<button onclick="addTodo()">Add</button>
+</div>
+<ul id="todoList"></ul>
+</div>
+</div>
+</div>
+
+<div id="pop" class="pop-bg" onclick="hidePop()">
+<div class="diary-paper" onclick="event.stopPropagation()">
+<span class="close-btn" onclick="hidePop()">&times;</span>
+<p id="popDate"></p>
+<div id="popText"></div>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
